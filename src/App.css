@@ -2,3 +2,12 @@ body {
   font-family: 'Roboto', sans-serif;
   padding: 20px 70px;
 }
+
+a{
+  text-decoration: none;
+  color: slategray;
+}
+
+a:hover {
+  text-decoration: underline;
+}
