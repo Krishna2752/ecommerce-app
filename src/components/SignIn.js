@@ -18,21 +18,26 @@ export class SignIn extends Component {
             e.preventDefault();
             this.setState({email: '',password: ''})
     }
+    handleChange = event => {
+        const { value, name } = event.target;
+    
+        this.setState({ [name]: value });
+      };
     render() {
         return (
             <div className="sign-in">
                 <h2>I already have an account.</h2>
                 <span>Sign in with email and password</span>
                 <form onSubmit={this.handleSubmit}>
-                    <FormInput name="email" type="email" value={this.state.email} handleChange={e => this.setState({email: e.target.value})} required label="Email" />
-                    <FormInput name="password" type="password" value={this.state.password} handleChange={e => this.setState({password: e.target.value})} required label="Password" />
-
+                    <FormInput name="email" type="email" value={this.state.email} handleChange={this.handleChange} required label="Email" />
+                    <FormInput name="password" type="password" value={this.state.password} handleChange={this.handleChange} required label="Password" />
+                    <div className="buttons">
                     <Button type="submit" value="Submit">SIGN IN</Button>
                     <Button onClick={signInWithGoogle} value="Submit" isGoogleSignIn>
                         {' '}
-                        Sign in with Google{' '}
+                        Google Login{' '}
                     </Button>
-
+                    </div>
 
 
                     
